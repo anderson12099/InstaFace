@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ImagenXAlbum{% endblock %}
+
+{% block body %}
+    <h1>ImagenXAlbum</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ imagen_x_album.id }}</td>
+            </tr>
+            <tr>
+                <th>NumeroOrden</th>
+                <td>{{ imagen_x_album.numeroOrden }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('imagen_x_album_index') }}">back to list</a>
+
+    <a href="{{ path('imagen_x_album_edit', {'id': imagen_x_album.id}) }}">edit</a>
+
+    {{ include('imagen_x_album/_delete_form.html.twig') }}
+{% endblock %}
