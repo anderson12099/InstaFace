@@ -1,0 +1,28 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Inicio de Sesión
+{% endblock %}
+
+{% block body %}
+	<div class="example-wrapper">
+		<h2>Inicio de Sesión</h2>
+
+        {% if error %}
+            <div class="alert alert-error">
+                {{ error.messageKey|trans(error.messageData, 'security') }}
+            </div>
+        {% endif %}
+        
+		
+        <form action="{{ path('login') }}" method="post">
+            <label for="username">Nombre de Usuario</label>
+            <input type="text" id="username" name="_username" value="{{ lastUserName }}"/>
+
+            <label for="password">Contraseña</label>
+            <input type="password" id="password" name="_password"/>
+            <div class="clearfix"></div>
+
+            <button type="submit">Entrar</button>
+	</div>
+
+{% endblock %}
