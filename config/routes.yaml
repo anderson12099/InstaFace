@@ -2,6 +2,14 @@
 #    path: /
 #    controller: App\Controller\DefaultController::index
 
+usuarios:
+    path: /usuarios
+    controller: App\Controller\UserController::index
+
+usuario_nuevo:
+    path: /usuarios/nuevo
+    controller: App\Controller\UserController::new
+
 login:
     path: /login
     controller: App\Controller\UserController::login
