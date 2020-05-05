@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit ImagenXAlbum{% endblock %}
+
+{% block body %}
+    <h1>Edit ImagenXAlbum</h1>
+
+    {{ include('imagen_x_album/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('imagen_x_album_index') }}">back to list</a>
+
+    {{ include('imagen_x_album/_delete_form.html.twig') }}
+{% endblock %}

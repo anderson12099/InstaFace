@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ComentarioAlbum index{% endblock %}
+
+{% block body %}
+    <h1>ComentarioAlbum index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Descripcion</th>
+                <th>Created_at</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for comentario_album in comentario_albums %}
+            <tr>
+                <td>{{ comentario_album.id }}</td>
+                <td>{{ comentario_album.descripcion }}</td>
+                <td>{{ comentario_album.createdAt ? comentario_album.createdAt|date('Y-m-d') : '' }}</td>
+                <td>
+                    <a href="{{ path('comentario_album_show', {'id': comentario_album.id}) }}">show</a>
+                    <a href="{{ path('comentario_album_edit', {'id': comentario_album.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('comentario_album_new') }}">Create new</a>
+{% endblock %}

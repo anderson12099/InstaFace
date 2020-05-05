@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New ComentarioImagen{% endblock %}
+
+{% block body %}
+    <h1>Create new ComentarioImagen</h1>
+
+    {{ include('comentario_imagen/_form.html.twig') }}
+
+    <a href="{{ path('comentario_imagen_index') }}">back to list</a>
+{% endblock %}

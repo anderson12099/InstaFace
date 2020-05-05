@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ImagenXAlbum index{% endblock %}
+
+{% block body %}
+    <h1>ImagenXAlbum index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>NumeroOrden</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for imagen_x_album in imagen_x_albums %}
+            <tr>
+                <td>{{ imagen_x_album.id }}</td>
+                <td>{{ imagen_x_album.numeroOrden }}</td>
+                <td>
+                    <a href="{{ path('imagen_x_album_show', {'id': imagen_x_album.id}) }}">show</a>
+                    <a href="{{ path('imagen_x_album_edit', {'id': imagen_x_album.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('imagen_x_album_new') }}">Create new</a>
+{% endblock %}
