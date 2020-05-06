@@ -1,4 +1,7 @@
 security:
+    acces_control:
+        - { path: ^/login$, 
+            roles: IS_AUTHENTICATED_ANONYMOUSLY }
     encoders:
         App\Entity\User:
             algorithm: auto
@@ -17,9 +20,12 @@ security:
         main:
             anonymous: lazy
             provider: app_user_provider
-            form_login: 
-                login_path: login
-                check_path: lagin
+            # form_login: 
+            #     login_path: login
+            #     check_path: lagin
+            guard: 
+                authenticators:
+                    - App\Security\LoginFormAuthenticator
 
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#firewalls-authentication
