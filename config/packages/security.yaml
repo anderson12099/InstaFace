@@ -4,14 +4,15 @@ security:
             roles: IS_AUTHENTICATED_ANONYMOUSLY }
     encoders:
         App\Entity\User:
-            algorithm: auto
+            algorithm: bcrypt
+            cost: 4
 
     # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
     providers:
         # used to reload user from session & other features (e.g. switch_user)
         app_user_provider:
             entity:
-                class: App\Entity\User
+                class: App\Security\LoginFormAuthenticator
                 property: username
     firewalls:
         dev:
@@ -20,9 +21,9 @@ security:
         main:
             anonymous: lazy
             provider: app_user_provider
-            # form_login: 
-            #     login_path: login
-            #     check_path: lagin
+            form_login: 
+                login_path: login
+                check_path: lagin
             guard:
                 authenticators:
                     - App\Security\LoginFormAuthenticator
